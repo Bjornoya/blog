@@ -1,8 +1,8 @@
-import Enzyme from 'enzyme';
-import EnzymeAdapter from 'jest-enzyme';
+import * as Enzyme from 'enzyme';
+import ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import '@testing-library/jest-dom/extend-expect';
 
 Enzyme.configure({
-    adapter: new EnzymeAdapter(),
+    adapter: new ReactSixteenAdapter(),
     disableLifecycleMethods: true,
 });
