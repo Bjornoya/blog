@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Header from "./Header";
+import { findByTestAttr } from "../../../utils";
 
 describe('Header component', () => {
     let component;
@@ -9,15 +10,15 @@ describe('Header component', () => {
     });
 
     it('Should render without errors', () => {
-       const wrapper = component.find(`[data-test='header']`);
+       const wrapper = findByTestAttr(component, 'header');
        expect(wrapper.length).toBe(1);
     });
-    it('Nav should render without errors', () => {
-        const wrapper = component.find(`[data-test='nav']`);
+    it('Should render a navigation', () => {
+        const wrapper = findByTestAttr(component, 'nav');
         expect(wrapper.length).toBe(1);
     });
-    it('Should have three menu items', () => {
-        const wrapper = component.find(`[data-test='menuItem']`);
+    it('Should render three menu items', () => {
+        const wrapper = findByTestAttr(component, 'menuItem');
         expect(wrapper.length).toBe(3);
     });
 });
