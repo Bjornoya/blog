@@ -9,8 +9,8 @@ const Header = () => {
                 <div className={style.menuItem} data-test="menuItem">News</div>
                 <div className={style.menuItem} data-test="menuItem">Contact</div>
                 <div className={style.menuItem} data-test="menuItem">About Us</div>
-                <Button children="Test button" />
             </nav>
+            <Button children="Show news" />
         </header>
     );
 };
