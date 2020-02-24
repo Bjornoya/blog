@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import style from './Button.module.scss';
 
 const Button = ({ children }) => {
     if(children) {
         return (
-            <div data-test="button">
+            <div className={style.button} data-test="button">
                 {children}
             </div>
         );
