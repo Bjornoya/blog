@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './Header.module.scss';
+import Button from "../Button/Button";
 
 const Header = () => {
     return (
@@ -8,6 +9,7 @@ const Header = () => {
                 <div className={style.menuItem} data-test="menuItem">News</div>
                 <div className={style.menuItem} data-test="menuItem">Contact</div>
                 <div className={style.menuItem} data-test="menuItem">About Us</div>
+                <Button children="Test button" />
             </nav>
         </header>
     );
