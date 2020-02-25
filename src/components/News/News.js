@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import style from './News.module.scss';
 import Post from "../Post/Post";
 
 // TODO: `Обратить внимание на то, что константа posts лежит внутри блока if.
@@ -15,7 +16,7 @@ const News = ({ data }) => {
         });
 
         return (
-            <div data-test="news">
+            <div className={style.container} data-test="news">
                 {posts}
             </div>
         );
