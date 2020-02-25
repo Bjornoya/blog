@@ -1,10 +1,11 @@
 import React from 'react';
+import style from './Post.module.scss';
 import PropTypes from 'prop-types';
 
 const Post = ({ userId, id, title, body }) => {
     if (userId && id && title && body) {
         return (
-            <div data-test="post">
+            <div className={style.post} data-test="post">
                 <h2>Id пользователя: {userId}</h2>
                 <p data-test="postId">Номер поста: {id}</p>
                 <h4>Заголовок: {title}</h4>
