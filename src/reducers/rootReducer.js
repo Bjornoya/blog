@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import langReducer from "./langReducer";
+import newsReducer from "./newsReducer";
 
 export const rootReducer = combineReducers({
-    lang: langReducer,
+    news: newsReducer,
 });
