@@ -1,4 +1,5 @@
 import * as t from './actionTypes';
+import { checkResponse, httpGet } from "../../utils";
 
 
 export const newsRequest = () => ({
@@ -17,3 +18,19 @@ export const newsFailure = (errorMsg) => ({
     },
     error: true
 });
+
+export const getNews = () => (dispatch) => {
+    dispatch(newsRequest());
+
+    return httpGet('posts')
+        .then(res => {
+            if (checkResponse(res)) {
+                dispatch(newsSuccess(res.data))
+            } else {
+                dispatch(newsFailure(res.message))
+            }
+        })
+        .catch(error => {
+            dispatch(newsFailure())
+        })
+};
