@@ -4,7 +4,7 @@ import * as t from '../actions/actionTypes';
 export const initialState = {
     data: null,
     isLoading: false,
-    error: false
+    error: null
 };
 
 export default function(state=initialState, action) {
@@ -12,13 +12,14 @@ export default function(state=initialState, action) {
         case t.NEWS_GET_REQUEST:
             return {
                 ...state,
-                isLoading: true
+                isLoading: true,
+                error: null
             };
         case t .NEWS_GET_SUCCESS:
             return {
                 ...state,
                 data: action.payload,
-                isLoading: false
+                isLoading: false,
             };
         case t.NEWS_GET_FAILURE:
             return {

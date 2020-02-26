@@ -44,5 +44,20 @@ describe('News Reducer', () => {
             isLoading: false,
             error: action.payload.errorMsg,
         })
+    });
+
+    it('NEWS_GET_REQUEST After Failure', () => {
+        const action = {
+            type: t.NEWS_GET_REQUEST
+        };
+        const prevState = {
+            ...initialState,
+            error: { errorMsg: '500 server error' },
+        };
+        expect(newsReducer(prevState, action)).toEqual({
+            ...prevState,
+            isLoading: true,
+            error: null
+        })
     })
 });
