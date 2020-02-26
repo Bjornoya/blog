@@ -15,7 +15,7 @@ export default function(state=initialState, action) {
                 isLoading: true,
                 error: null
             };
-        case t .NEWS_GET_SUCCESS:
+        case t.NEWS_GET_SUCCESS:
             return {
                 ...state,
                 data: action.payload,
