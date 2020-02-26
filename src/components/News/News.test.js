@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 import News from "./News";
 import Post from "../Post/Post";
 
-import { findByTestAttr, propTypesCheck } from "../../../utils";
+import { findByTestAttr, propTypesCheck } from "../../../testUtils";
 
 
 

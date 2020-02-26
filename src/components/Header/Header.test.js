@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Header from "./Header";
-import { findByTestAttr } from "../../../utils";
+import { findByTestAttr } from "../../../testUtils";
 
 describe('Header component', () => {
     let component;

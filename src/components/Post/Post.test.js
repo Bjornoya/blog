@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import Post from "./Post";
 
-import { findByTestAttr, propTypesCheck } from "../../../utils";
+import { findByTestAttr, propTypesCheck } from "../../../testUtils";
 
 
 describe('Post component', () => {
