@@ -51,5 +51,19 @@ describe('News action', () => {
                 expect(store.getActions()).toEqual(expectedActions);
             });
         });
+
+        it('Creates NEWS_GET_FAILURE if received bad response', () => {
+            fetchMock.getOnce(`${API_ROOT}/posts`, {
+                headers: { 'content-type': 'application/json' },
+                body: { data: [1, 2, 3], status: 'not found' },
+            });
+
+            const expectedActions = [newsRequest(), newsFailure()];
+            const store = mockStore({});
+
+            return store.dispatch(getNews()).then(() => {
+                expect(store.getActions()).toEqual(expectedActions);
+            });
+        });
     })
 });
