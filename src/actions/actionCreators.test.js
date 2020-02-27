@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
 import * as t from './actionTypes'
 import { newsRequest, newsSuccess, newsFailure, getNews } from "./actionCreators";
-import { API_ROOT } from "../../utils";
+import { API_ROOT } from "../utils";
 
 
 const middlewares = [thunk];
