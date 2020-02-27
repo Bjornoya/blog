@@ -19,18 +19,14 @@ export const newsFailure = (errorMsg) => ({
     error: true
 });
 
-export const getNews = () => (dispatch) => {
+export const getNews = () => async (dispatch) => {
     dispatch(newsRequest());
 
-    return httpGet('posts')
-        .then(res => {
-            if (checkResponse(res)) {
-                dispatch(newsSuccess(res.data))
-            } else {
-                dispatch(newsFailure(res.message))
-            }
-        })
-        .catch(error => {
-            dispatch(newsFailure())
-        })
+    const response = await fetch('https://5e583c9911703300147ae9e1.mockapi.io/posts');
+    const myJson = await response.json();
+    if (response.ok) {
+        dispatch(newsSuccess(myJson))
+    } else {
+        dispatch(newsFailure(response.status))
+    }
 };

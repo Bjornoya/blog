@@ -1,8 +1,9 @@
-export const API_ROOT = 'https://jsonplaceholder.typicode.com';
+export const API_ROOT = 'https://5e583c9911703300147ae9e1.mockapi.io';
 
 export const httpGet = async endPoint => {
     try {
         const response = await fetch(`${API_ROOT}/${endPoint}`);
+        console.log('RESPONSE', response)
         if (response.ok) {
             const json = await response.json();
             return json
@@ -15,7 +16,8 @@ export const httpGet = async endPoint => {
 };
 
 export const checkResponse = (res) => {
-    if (res.status === 'ok') {
+    console.log('RES' ,res)
+    if (res.statusText === "OK") {
         return true
     } else {
         return false
