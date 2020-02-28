@@ -4,6 +4,7 @@ import Button from "./Button";
 
 import { findByTestAttr, propTypesCheck } from "../../../testUtils";
 
+jest.mock('react-redux');
 
 describe('Button component', () => {
 

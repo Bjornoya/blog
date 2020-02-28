@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from "react-redux";
 import style from './Button.module.scss';
 
-import {useDispatch} from "react-redux";
-import {getNews} from "../../actions/actionCreators";
+import { getNews } from "../../actions/actionCreators";
+
 
 const Button = ({ children }) => {
 
@@ -23,7 +24,6 @@ const Button = ({ children }) => {
 
 Button.propTypes = {
     children: PropTypes.string,
-    num: PropTypes.number,
 };
 
 export default Button;
