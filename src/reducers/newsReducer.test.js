@@ -17,7 +17,7 @@ describe('News Reducer', () => {
     it('NEWS_GET_SUCCESS', () => {
         const action = {
             type: t.NEWS_GET_SUCCESS,
-            payload: 'Payload data...'
+            payload: [1, 2, 3]
         };
         const prevState = {
             ...initialState,
@@ -33,7 +33,7 @@ describe('News Reducer', () => {
     it('NEWS_GET_FAILURE', () => {
         const action = {
             type: t.NEWS_GET_FAILURE,
-            payload: { errorMsg: '500 server error' },
+            payload: '500 server error',
         };
         const prevState = {
             ...initialState,
@@ -42,7 +42,7 @@ describe('News Reducer', () => {
         expect(newsReducer(prevState, action)).toEqual({
             ...prevState,
             isLoading: false,
-            error: action.payload.errorMsg,
+            error: action.payload,
         })
     });
 
@@ -52,7 +52,7 @@ describe('News Reducer', () => {
         };
         const prevState = {
             ...initialState,
-            error: { errorMsg: '500 server error' },
+            error: '500 server error',
         };
         expect(newsReducer(prevState, action)).toEqual({
             ...prevState,
