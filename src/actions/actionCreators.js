@@ -1,5 +1,5 @@
 import * as t from './actionTypes';
-import {API_ROOT, checkResponse, httpGet} from "../utils";
+import { API_ROOT } from "../utils";
 
 
 export const newsRequest = () => ({
