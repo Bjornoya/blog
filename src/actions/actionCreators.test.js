@@ -40,6 +40,7 @@ describe('News action', () => {
         it('Creates NEWS_GET_SUCCESS after fetching', () => {
             fetchMock.getOnce(`${API_ROOT}/posts`, {
                 body: [1, 2, 3],
+                status: 200,
                 headers: { 'content-type': 'application/json' },
             });
 
@@ -51,22 +52,22 @@ describe('News action', () => {
             });
         });
 
-        // it('Creates NEWS_GET_FAILURE if received bad response', () => {
-        //     fetchMock.getOnce(`${API_ROOT}/posts`, {
-        //         errorMsg: 'Page not found',
-        //         headers: { 'content-type': 'application/json' },
-        //         // body: {},
-        //     });
-        //
-        //     const expectedActions = [newsRequest(), newsFailure()];
-        //     const store = mockStore({});
-        //
-        //     return store.dispatch(getNews()).then(() => {
-        //         expect(store.getActions()).toEqual(expectedActions);
-        //     });
-        // });
-        // TODO: `Не понятно как делать тесты асинхронных функций на неудачный исход.
-        //  После того как приходит объект response и я преобразую его через метод .json()
-        //  у него не получается достучаться до response.status например`
+        it('Creates NEWS_GET_FAILURE if received bad response', () => {
+            fetchMock.getOnce(`${API_ROOT}/posts`, {
+                body: ["Not Found"],
+                status: 404,
+                headers: { 'content-type': 'application/json' },
+            });
+
+            const expectedActions = [newsRequest(), newsFailure("Not Found")];
+            const store = mockStore({});
+
+            return store.dispatch(getNews()).then(() => {
+                expect(store.getActions()).toEqual(expectedActions);
+            });
+        });
+        // TODO: `Ошибка была в том, что я забыл передать в expectedActions в newsFailure строку с ошибкой.
+        //  Для того чтоб словить ошибку, не надо трогать url, можно указать status в теле response.
+        //  Не забывай afterEach fetchMock.restore()`
     })
 });

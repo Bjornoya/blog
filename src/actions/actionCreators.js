@@ -11,14 +11,14 @@ export const newsSuccess = (data) => ({
     payload: data
 });
 
-export const newsFailure = (errorMsg) => ({
+export const newsFailure = (error) => ({
     type: t.NEWS_GET_FAILURE,
-    payload: errorMsg,
+    payload: error
 });
 
 export const getNews = () => async (dispatch) => {
     dispatch(newsRequest());
-    const response = await fetch('https://5e583c9911703300147ae9e1.mockapi.io/posts');
+    const response = await fetch(`${API_ROOT}/posts`);
     const myJson = await response.json();
     if (response.ok) {
         dispatch(newsSuccess(myJson))
@@ -26,16 +26,3 @@ export const getNews = () => async (dispatch) => {
         dispatch(newsFailure(response.statusText))
     }
 };
-
-
-
-
-
-
-// export const getNews = () => async (dispatch) => {
-//     dispatch(newsRequest());
-//     return fetch(`${API_ROOT}/posts`)
-//         .then(res => res.json())
-//         .then(body => dispatch(newsSuccess(body)))
-//         .catch(ex => dispatch(newsFailure(ex)))
-// };
