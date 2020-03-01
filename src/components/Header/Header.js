@@ -10,7 +10,7 @@ const Header = () => {
                 <div className={style.menuItem} data-test="menuItem">Contact</div>
                 <div className={style.menuItem} data-test="menuItem">About Us</div>
             </nav>
-            <Button children="Show news" />
+            <Button children="Add post" />
         </header>
     );
 };
