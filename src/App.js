@@ -1,27 +1,22 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import style from './App.module.scss';
-import Header from "./components/Header/Header";
-import Post from "./components/Post/Post";
-import News from "./components/News/News";
-import { useDispatch, useSelector } from "react-redux";
-import { getNews } from "./actions/actionCreators";
+import About from "./routes/About/About";
+import NewsContainer from "./components/News/NewsContainer";
+import { Route, Switch } from "react-router-dom";
+import NotFound from "./routes/NotFound/NotFound";
+import Contact from "./routes/Contact/Contact";
 
 
 function App() {
 
-    useEffect(() => {
-        dispatch(getNews())
-    }, []);
-
-    const dispatch = useDispatch();
-
-    const newsData = useSelector(state => state.news.data);
-
   return (
     <div>
-      <Header />
-      <News data={newsData} />
-      <Post />
+        <Switch>
+            <Route exact path="/" component={NewsContainer} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Route component={NotFound} />
+        </Switch>
     </div>
   );
 }
