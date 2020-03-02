@@ -1,6 +1,5 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import App from "./App";
 import { MemoryRouter } from "react-router";
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
@@ -9,6 +8,7 @@ import NewsContainer from "./components/News/NewsContainer";
 import NotFound from "./routes/NotFound/NotFound";
 import About from "./routes/About/About";
 import Contact from "./routes/Contact/Contact";
+import Routes from "./routes";
 
 
 describe('Routes using MemoryRouter', () => {
@@ -24,28 +24,28 @@ describe('Routes using MemoryRouter', () => {
 
     it('Should render NewsContainer for route "/"', () => {
         const component = mount(<MemoryRouter initialEntries = {['/']}>
-            <Provider store={store}><App/></Provider>
+            <Provider store={store}><Routes/></Provider>
         </MemoryRouter>);
         expect(component.find(NewsContainer)).toHaveLength(1);
     });
 
     it('Should render About page for route "/about"', () => {
         const component = mount(<MemoryRouter initialEntries = {['/about']}>
-            <Provider store={store}><App/></Provider>
+            <Provider store={store}><Routes/></Provider>
         </MemoryRouter>);
         expect(component.find(About)).toHaveLength(1);
     });
 
     it('Should render Contact page for route "/contact"', () => {
         const component = mount(<MemoryRouter initialEntries = {['/contact']}>
-            <Provider store={store}><App/></Provider>
+            <Provider store={store}><Routes/></Provider>
         </MemoryRouter>);
         expect(component.find(Contact)).toHaveLength(1);
     });
 
     it('Should render NotFound if wrong route', () => {
         const component = mount(<MemoryRouter initialEntries = {['/unknown']}>
-            <Provider store={store}><App/></Provider>
+            <Provider store={store}><Routes/></Provider>
         </MemoryRouter>);
         expect(component.find(NotFound)).toHaveLength(1);
     });
