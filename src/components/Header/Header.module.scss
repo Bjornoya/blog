@@ -17,8 +17,14 @@
   margin: 0px 10px;
   color: antiquewhite;
   text-decoration: none;
+  &:hover {
+    color: darken(antiquewhite, 20%);
+  }
 }
 
 .active {
   color: indianred;
+  &:hover {
+    color: indianred;
+  }
 }
