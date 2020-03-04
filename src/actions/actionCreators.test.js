@@ -2,7 +2,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
 import * as t from './actionTypes'
-import { newsRequest, newsSuccess, newsFailure, getNews } from "./actionCreators";
+import { newsRequest, newsSuccess, newsFailure, getNews, addPost } from "./actionCreators";
 import { API_ROOT } from "../utils";
 
 
@@ -27,6 +27,12 @@ describe('News action', () => {
             expect(newsFailure('Some error')).toEqual({
                 type: t.NEWS_GET_FAILURE,
                 payload: 'Some error',
+            })
+        });
+        it('Adding post to payload', () => {
+            expect(addPost('Post data...')).toEqual({
+                type: t.ADD_POST,
+                payload: 'Post data...',
             })
         });
     });

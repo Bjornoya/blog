@@ -16,6 +16,11 @@ export const newsFailure = (error) => ({
     payload: error
 });
 
+export const addPost = (post) => ({
+    type: t.ADD_POST,
+    payload: post
+});
+
 export const getNews = () => async (dispatch) => {
     dispatch(newsRequest());
     const response = await fetch(`${API_ROOT}/posts`);
