@@ -18,7 +18,11 @@ export const newsFailure = (error) => ({
 
 export const addPost = (post) => ({
     type: t.ADD_POST,
-    payload: post
+    payload: {
+        userId: 14,
+        body: post.body,
+        title: post.title,
+    }
 });
 
 export const getNews = () => async (dispatch) => {

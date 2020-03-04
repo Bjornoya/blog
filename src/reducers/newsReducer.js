@@ -2,7 +2,7 @@ import * as t from '../actions/actionTypes';
 
 
 export const initialState = {
-    data: null,
+    data: [],
     isLoading: false,
     error: null
 };
@@ -26,6 +26,11 @@ export default function(state=initialState, action) {
                 ...state,
                 isLoading: false,
                 error: action.payload
+            };
+        case t.ADD_POST:
+            return {
+                ...state,
+                data: [...state.data, action.payload]
             };
         default:
             return state;

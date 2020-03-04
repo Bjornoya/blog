@@ -30,9 +30,13 @@ describe('News action', () => {
             })
         });
         it('Adding post to payload', () => {
-            expect(addPost('Post data...')).toEqual({
+            expect(addPost({title: 'Hello', body: 'Body text'})).toEqual({
                 type: t.ADD_POST,
-                payload: 'Post data...',
+                payload: {
+                    userId: 14,
+                    title: 'Hello',
+                    body: 'Body text'
+                },
             })
         });
     });

@@ -59,5 +59,24 @@ describe('News Reducer', () => {
             isLoading: true,
             error: null
         })
-    })
+    });
+
+    it('ADD_POST adding post to news in redux store', () => {
+        const action = {
+            type: t.ADD_POST,
+            payload: {
+                userId: 14,
+                title: 'Hello title',
+                body: 'Body text'
+            }
+        };
+        expect(newsReducer(initialState, action)).toEqual({
+            ...initialState,
+            data: [{
+                userId: 14,
+                title: 'Hello title',
+                body: 'Body text'
+            }]
+        });
+    });
 });
