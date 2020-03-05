@@ -31,8 +31,8 @@ describe('Post component', () => {
         });
 
         it('Should render correct userId', () => {
-            const wrapper = findByTestAttr(component, 'postId');
-            expect(wrapper.text().includes('Номер поста: 1')).toBe(true);
+            const wrapper = findByTestAttr(component, 'userId');
+            expect(wrapper.text().includes('Id пользователя: 1')).toBe(true);
         });
 
         it('Should receive valid propTypes', () => {

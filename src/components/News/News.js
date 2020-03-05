@@ -12,7 +12,7 @@ const News = ({ data }) => {
 
     if (data) {
         const posts = data.map((post, index) => {
-            return <Post userId={post.userId} id={post.id} title={post.title} body={post.body} key={index} />
+            return <Post userId={post.userId} id={index} title={post.title} body={post.body} key={index} />
         });
 
         return (
