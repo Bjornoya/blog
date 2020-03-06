@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import style from './Header.module.scss';
-import Button from "../Button/Button";
 
 const Header = () => {
     return (

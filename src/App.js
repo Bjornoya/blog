@@ -5,7 +5,7 @@ import style from './App.module.scss';
 const App = ({children}) => {
 
   return (
-    <div>
+    <div className={style.body}>
         {children}
     </div>
   );
