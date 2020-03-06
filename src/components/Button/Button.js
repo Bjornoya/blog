@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './Button.module.scss';
 
-const Button = ({ children }) => {
+const Button = ({ children, className }) => {
 
     if(children) {
         return (
-            <button className={style.button} data-test="button">
+            <a className={className ? className : style.button} data-test="button">
                 {children}
-            </button>
+            </a>
         );
     } else {
         return null;
