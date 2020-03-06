@@ -2,14 +2,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
-  background: #020202;
-  color: #F7F7F7;
+  padding: 25px 122px;
+  background: #3A3A3A;
+  color: #FDFDFD;
 }
 
 .nav {
   display: flex;
   align-items: center;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
 }
 
 .menuItem {
@@ -23,8 +29,8 @@
 }
 
 .active {
-  color: indianred;
+  color: #0EC0D8;
   &:hover {
-    color: indianred;
+    color: #0EC0D8;
   }
 }
