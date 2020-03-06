@@ -6,9 +6,9 @@ const Button = ({ children }) => {
 
     if(children) {
         return (
-            <div className={style.button} data-test="button">
+            <button className={style.button} data-test="button">
                 {children}
-            </div>
+            </button>
         );
     } else {
         return null;

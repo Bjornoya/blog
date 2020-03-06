@@ -24,7 +24,7 @@ describe('App component', () => {
         <Provider store={store}><NewsContainer /></Provider>
     </Router>); // Обернул в роутер для того чтобы при использовании NavLink не было ошибки
 
-    it('UseEffect "ComponentDidMount" works correctly. Called once', () => {
-        expect(spy).toHaveBeenCalledTimes(1);
+    it('UseEffect works', () => {
+        expect(spy).toHaveBeenCalled();
     });
 });

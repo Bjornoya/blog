@@ -7,7 +7,7 @@ const About = () => {
         <>
             <Header />
             <div className={style.container}>
-                <img className={style.img} src={AboutImg} alt="About image" />
+                <img className={style.img} src={AboutImg} alt="About" />
                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                    dolore magna aliqua. Ut tortor pretium viverra suspendisse potenti nullam. Eget mi proin sed libero.
                    Dignissim diam quis enim lobortis scelerisque. In vitae turpis massa sed elementum. Nunc pulvinar sapien

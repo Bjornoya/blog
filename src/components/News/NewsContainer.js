@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import {addPost, getNews} from "../../actions/actionCreators";
+import { getNews } from "../../actions/actionCreators";
 import { useDispatch, useSelector } from "react-redux";
 import News from "./News";
 import Header from "../Header/Header";
+import AddPost from "../AddPost/AddPost";
 
 const NewsContainer = () => {
 
@@ -17,6 +18,7 @@ const NewsContainer = () => {
     return (
         <>
             <Header />
+            <AddPost />
             <News data={newsData} />
         </>
     );
