@@ -16,7 +16,7 @@ const News = ({ data }) => {
         });
 
         return (
-            <div className={style.container} data-test="news">
+            <div className={style.posts} data-test="news">
                 {posts}
             </div>
         );

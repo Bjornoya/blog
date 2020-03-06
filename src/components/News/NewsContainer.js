@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { getNews } from "../../actions/actionCreators";
 import { useDispatch, useSelector } from "react-redux";
+import style from './News.module.scss';
 import News from "./News";
 import Header from "../Header/Header";
-import AddPost from "../AddPost/AddPost";
+import Button from "../Button/Button";
 
 const NewsContainer = () => {
 
@@ -18,8 +19,13 @@ const NewsContainer = () => {
     return (
         <>
             <Header />
-            <AddPost />
-            <News data={newsData} />
+            <div className={style.container}>
+                <div className={style.newsHeader}>
+                    <h1 className={style.headline}>News</h1>
+                    <Button children="Add post" className={style.button} />
+                </div>
+                <News data={newsData} />
+            </div>
         </>
     );
 };
