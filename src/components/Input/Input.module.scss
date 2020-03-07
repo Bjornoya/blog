@@ -1,0 +1,16 @@
+.input {
+  padding: 6px 3px;
+  border: 1px solid #DADADA;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+  display: block;
+  transition: 0.2s ease-in;
+  &:hover {
+    border: 1px solid #878787;
+  }
+  &:focus {
+    border: 1px solid #0EC0D8;
+  }
+}
