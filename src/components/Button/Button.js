@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './Button.module.scss';
 
-const Button = ({ children, className }) => {
+const Button = ({ children, className, onClick }) => {
 
     if(children) {
         return (
-            <a className={className ? className : style.button} data-test="button">
+            <a onClick={onClick} className={className ? className : style.button} data-test="button">
                 {children}
             </a>
         );
