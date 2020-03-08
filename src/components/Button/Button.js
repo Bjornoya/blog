@@ -6,9 +6,9 @@ const Button = ({ children, className, onClick }) => {
 
     if(children) {
         return (
-            <a onClick={onClick} className={className ? className : style.button} data-test="button">
+            <button onClick={onClick} className={className ? className : style.button} data-test="button">
                 {children}
-            </a>
+            </button>
         );
     } else {
         return null;

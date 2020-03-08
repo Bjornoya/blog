@@ -5,6 +5,16 @@ body {
   font-family: 'Roboto';
 }
 
+button {
+  border-width: unset;
+  border-style: unset;
+  border-color: unset;
+  border-image: unset;
+  &:focus {
+    outline: none;
+  }
+}
+
 .body {
   background: #E5E5E5;
 }
