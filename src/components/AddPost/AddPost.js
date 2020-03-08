@@ -1,49 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from "../Button/Button";
 import style from './AddPost.module.scss';
 import { useDispatch } from "react-redux";
 import { addPost } from "../../actions/actionCreators";
+import Input from "../Input/Input";
+import TextArea from "../TextArea/TextArea";
 
-const AddPost = () => {
+const AddPost = ({ onClick }) => {
 
-    const dispatch = useDispatch();
-    let data = {};
-    const handleInput = (event) => {
-        data[event.target.name] = event.target.value;
+    const [field, setField] = useState({
+        title: '',
+        body: ''
+    });
+    const handleField = (event) => {
+        setField({
+            ...field,
+            [event.target.name]: event.target.value
+        })
     };
 
+    const dispatch = useDispatch();
 
     const onSubmit = (event) => {
         event.preventDefault();
-        dispatch(addPost(data));
-        event.target.reset();
+        dispatch(addPost(field));
+        onClick(); // Toggle isOpen
     };
-
 
     return (
         <>
-            <div className={style.form}>
-                <form onSubmit={(event) => onSubmit(event)}>
-                    <div className={style.line}>
-                        <span className={style.name}>Post title</span>
-                        <input
-                            onChange={(event) => handleInput(event)}
-                            name="title"
-                            value={data.title}
-                            type="text"
-                            data-test="title"/>
+                <form onSubmit={onSubmit}>
+                    <span className={style.label}>Post title</span>
+                    <Input name="title"
+                           value={field.title}
+                           onChange={handleField} />
+                    <span className={style.label}>Description</span>
+                    <TextArea rows="7"
+                              name="body"
+                              value={field.body}
+                              onChange={handleField}/>
+                    <div className={style.footer}>
+                        <Button data-test="modal-close" onClick={onClick} className={style.cancel} children="Cancel" />
+                        <Button children="Submit" className={style.button} />
                     </div>
-                    <div className={style.line}>
-                        <span className={style.name}>Post body</span>
-                        <textarea
-                            name="body"
-                            value={data.body}
-                            onChange={(event => handleInput(event))}>
-                        </textarea>
-                    </div>
-                    <Button>Add Post</Button>
                 </form>
-            </div>
         </>
     );
 };

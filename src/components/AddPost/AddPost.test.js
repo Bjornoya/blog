@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import configureMockStore from "redux-mock-store";
 
-import { findByTestAttr } from "../../../testUtils";
 import AddPost from "./AddPost";
 
 
@@ -19,18 +18,16 @@ describe('AddPost component', function () {
         }
     });
     const wrapper = mount(<Provider store={store}><AddPost /></Provider>);
-    it("Should have a title field", () => {
-        const input = findByTestAttr(wrapper, 'title');
-        expect(input.length).toEqual(1);
-    });
     it("Should have proper props for title field", () => {
-        const input = findByTestAttr(wrapper, 'title');
+        const input = wrapper.find('input');
         expect(input.props()).toEqual({
-            value: undefined,
+            value: '',
             name: 'title',
             type: 'text',
             onChange: expect.any(Function),
-            'data-test': 'title'
+            autoComplete: 'off',
+            className: 'input'
+
         })
     });
     it("Should have a body field", () => {
@@ -40,9 +37,15 @@ describe('AddPost component', function () {
     it("Should have proper props for body field", () => {
         const textarea = wrapper.find('textarea');
         expect(textarea.props()).toEqual({
-            value: undefined,
+            value: '',
             name: 'body',
-            onChange: expect.any(Function)
+            onChange: expect.any(Function),
+            autoComplete: 'off',
+            rows: '7',
+            className: 'textarea'
         })
     });
 });
+
+// TODO: `https://github.com/enzymejs/enzyme/issues/1999
+//        Не понятно как тестировать смену стейта в форме.`
