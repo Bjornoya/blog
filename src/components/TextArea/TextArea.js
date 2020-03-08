@@ -1,9 +1,15 @@
 import React from 'react';
 import style from './TextArea.module.scss';
 
-const TextArea = ({ children, rows }) => {
+const TextArea = ({ children, rows, name, value, onChange }) => {
     return (
-        <textarea className={style.textarea} rows={rows}></textarea>
+        <textarea name={name}
+                  value={value}
+                  className={style.textarea}
+                  rows={rows}
+                  autoComplete="off"
+                  onChange={onChange}>
+        </textarea>
     );
 };
 
