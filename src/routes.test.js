@@ -7,7 +7,6 @@ import { Provider } from "react-redux";
 import NewsContainer from "./components/News/NewsContainer";
 import NotFound from "./routes/NotFound/NotFound";
 import About from "./routes/About/About";
-import Contact from "./routes/Contact/Contact";
 import Routes from "./routes";
 
 
@@ -34,13 +33,6 @@ describe('Routes using MemoryRouter', () => {
             <Provider store={store}><Routes/></Provider>
         </MemoryRouter>);
         expect(component.find(About)).toHaveLength(1);
-    });
-
-    it('Should render Contact page for route "/contact"', () => {
-        const component = mount(<MemoryRouter initialEntries = {['/contact']}>
-            <Provider store={store}><Routes/></Provider>
-        </MemoryRouter>);
-        expect(component.find(Contact)).toHaveLength(1);
     });
 
     it('Should render NotFound if wrong route', () => {

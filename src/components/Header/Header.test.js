@@ -17,8 +17,8 @@ describe('Header component', () => {
         const wrapper = findByTestAttr(component, 'nav');
         expect(wrapper.length).toBe(1);
     });
-    it('Should render three menu items', () => {
+    it('Should render two menu items', () => {
         const wrapper = findByTestAttr(component, 'menuItem');
-        expect(wrapper.length).toBe(3);
+        expect(wrapper.length).toBe(2);
     });
 });

@@ -3,7 +3,6 @@ import App from "./App";
 import {Route, Switch} from "react-router-dom";
 import NewsContainer from "./components/News/NewsContainer";
 import About from "./routes/About/About";
-import Contact from "./routes/Contact/Contact";
 import NotFound from "./routes/NotFound/NotFound";
 
 const Routes = () => {
@@ -12,7 +11,6 @@ const Routes = () => {
             <Switch>
                 <Route exact path="/" component={NewsContainer} />
                 <Route path="/about" component={About} />
-                <Route path="/contact" component={Contact} />
                 <Route component={NotFound} />
             </Switch>
         </App>
