@@ -71,3 +71,5 @@ describe('News component', () => {
         })
     });
 });
+
+// TODO: `Нужно ли тестить метод reverse()? КАК ?`

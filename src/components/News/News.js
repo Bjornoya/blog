@@ -19,7 +19,7 @@ const News = ({ data }) => {
 
         return (
             <div className={style.posts} data-test="news">
-                {posts}
+                {posts.reverse()}
             </div>
         );
     } else {
