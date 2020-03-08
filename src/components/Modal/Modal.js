@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import style from './Modal.module.scss';
-import Button from "../Button/Button";
 
 
 const Modal = ({ children, isOpen, title, onClick }) => {
@@ -16,10 +15,6 @@ const Modal = ({ children, isOpen, title, onClick }) => {
                             </div>
                             <div className={style.body}>
                                 { children }
-                            </div>
-                            <div className={style.footer}>
-                                <Button data-test="modal-close" onClick={onClick} className={style.cancel} children="Cancel" />
-                                <Button children="Submit" className={style.button} />
                             </div>
                         </div>
                     </div>
