@@ -1,0 +1,11 @@
+.icon {
+  i {
+    padding: 5px;
+    border-radius: 50%;
+    transition: 0.3s ease-in;
+    &:hover {
+      cursor: pointer;
+      background: darken(white, 10%);
+    }
+  }
+}
