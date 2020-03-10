@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getNews } from "../../actions/actionCreators";
+import {getNews, toggleTooltip} from "../../actions/actionCreators";
 import { useDispatch, useSelector } from "react-redux";
 import style from './News.module.scss';
 import News from "./News";
@@ -21,6 +21,10 @@ const NewsContainer = () => {
 
     const dispatch = useDispatch();
 
+    const handleTooltip = (id) => {
+        dispatch(toggleTooltip(id))
+    };
+
     const newsData = useSelector(state => state.news.data);
 
     return (
@@ -31,7 +35,7 @@ const NewsContainer = () => {
                     <h1 className={style.headline}>News</h1>
                     <Button children="Add post" onClick={handleIsOpen} className={style.button} />
                 </div>
-                <News data={newsData} />
+                <News data={newsData} handleTooltip={handleTooltip} />
             </div>
             <Modal onClick={handleIsOpen} isOpen={isOpen} title="Add post">
                 <AddPost onClick={handleIsOpen} />

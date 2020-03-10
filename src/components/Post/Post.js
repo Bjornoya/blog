@@ -2,8 +2,10 @@ import React from 'react';
 import style from './Post.module.scss';
 import PropTypes from 'prop-types';
 import Icon from "../Icon/Icon";
+import Tooltip from "../Tooltip/Tooltip";
 
-const Post = ({ userId, title, body, image, id }) => {
+const Post = ({ userId, title, body, image, isOpen, id, handleTooltip }) => {
+
     if (userId && id && title && body && image) {
         return (
             <div className={style.post} data-test="post">
@@ -15,7 +17,8 @@ const Post = ({ userId, title, body, image, id }) => {
                           <p className={style.userId} data-test="userId">User ID {userId}</p>
                       </div>
                        <div className={style.icon}>
-                           <Icon icon="more_vert" />
+                           <Icon onClick={() => handleTooltip(id)} icon="more_vert" />
+                           <Tooltip isOpen={isOpen} />
                        </div>
                    </div>
                     <h2 className={style.title}>{title}</h2>

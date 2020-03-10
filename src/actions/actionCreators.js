@@ -25,6 +25,11 @@ export const addPost = (post) => ({
     }
 });
 
+export const toggleTooltip = (index) => ({
+    type: t.TOGGLE_TOOLTIP,
+    payload: index
+});
+
 export const getNews = () => async (dispatch) => {
     dispatch(newsRequest());
     const response = await fetch(`${API_ROOT}/posts`);

@@ -2,9 +2,9 @@ import React from 'react';
 import style from './Icon.module.scss';
 import MaterialIcon from 'material-icons-react';
 
-const Icon = ({ icon }) => {
+const Icon = ({ icon, onClick }) => {
     return (
-        <div className={style.icon}>
+        <div onClick={onClick} className={style.icon}>
             <MaterialIcon icon={icon}/>
         </div>
     );

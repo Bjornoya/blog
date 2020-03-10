@@ -32,6 +32,15 @@ export default function(state=initialState, action) {
                 ...state,
                 data: [...state.data, action.payload]
             };
+        case t.TOGGLE_TOOLTIP:
+            return {
+                ...state,
+                data: [
+                    ...state.data.slice(0, action.payload),
+                    {...state.data[action.payload], isOpen: !state.data[action.payload].isOpen},
+                    ...state.data.slice(action.payload + 1),
+                ]
+            };
         default:
             return state;
     }
