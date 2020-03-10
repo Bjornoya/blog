@@ -32,6 +32,14 @@ export default function(state=initialState, action) {
                 ...state,
                 data: [...state.data, action.payload]
             };
+        case t.DELETE_POST:
+            return {
+                ...state,
+                data: [
+                    ...state.data.slice(0, action.payload),
+                    ...state.data.slice(action.payload + 1),
+                ]
+            };
         case t.TOGGLE_TOOLTIP:
             return {
                 ...state,

@@ -25,6 +25,11 @@ export const addPost = (post) => ({
     }
 });
 
+export const deletePost = (index) => ({
+    type: t.DELETE_POST,
+    payload: index
+});
+
 export const toggleTooltip = (index) => ({
     type: t.TOGGLE_TOOLTIP,
     payload: index

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Icon from "../Icon/Icon";
 import Tooltip from "../Tooltip/Tooltip";
 
-const Post = ({ userId, title, body, image, isOpen, id, handleTooltip }) => {
+const Post = ({ userId, title, body, image, isOpen, id, handleTooltip, removePost }) => {
 
     if (userId && id && title && body && image) {
         return (
@@ -18,7 +18,7 @@ const Post = ({ userId, title, body, image, isOpen, id, handleTooltip }) => {
                       </div>
                        <div className={style.icon}>
                            <Icon onClick={() => handleTooltip(id)} icon="more_vert" />
-                           <Tooltip isOpen={isOpen} />
+                           <Tooltip isOpen={isOpen} removePost={removePost} id={id}/>
                        </div>
                    </div>
                     <h2 className={style.title}>{title}</h2>

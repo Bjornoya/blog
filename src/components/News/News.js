@@ -10,11 +10,11 @@ import image from '../../assets/img/iceland.jpg'
 //  Этим if-else я даю понять, что переменная должна создавать только когда пришли пропсы во избежание ошибок.
 //  Если еще раз словишь в тестах баг с map undefined, то смотри сюда!!!`
 
-const News = ({ data, handleTooltip }) => {
+const News = ({ data, handleTooltip, removePost }) => {
 
     if (data) {
         const posts = data.map((post, index) => {
-            return <Post userId={post.userId} id={index} title={post.title} body={post.body} image={image} isOpen={post.isOpen} key={index} handleTooltip={handleTooltip} />
+            return <Post userId={post.userId} id={index} title={post.title} body={post.body} image={image} isOpen={post.isOpen} key={index} handleTooltip={handleTooltip} removePost={removePost} />
         });
 
         return (
