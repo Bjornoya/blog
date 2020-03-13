@@ -45,7 +45,38 @@ describe('AddPost component', function () {
             className: 'textarea'
         })
     });
+
+    describe('Changing value in title', () => {
+        const input = wrapper.find('input');
+        beforeEach(() => {
+            input.simulate('change', {
+                target: { name: 'title', value: 'test'}
+            })
+        });
+
+        it('Should change input props', () => {
+            const inputValue = wrapper.find('input');
+            expect(inputValue.props().value).toBe('test');
+        })
+    });
+
+    describe('Changing value in textarea', () => {
+        const input = wrapper.find('textarea');
+        beforeEach(() => {
+            input.simulate('change', {
+                target: { name: 'title', value: 'test'}
+            })
+        });
+
+        it('Should change textarea props', () => {
+            const inputValue = wrapper.find('input');
+            expect(inputValue.props().value).toBe('test');
+        })
+    });
 });
 
 // TODO: `https://github.com/enzymejs/enzyme/issues/1999
-//        Не понятно как тестировать смену стейта в форме.`
+//        Не понятно как тестировать смену стейта в форме.
+//        Пока что, на сколько я понял, норм практика - писать в beforeEach логику .simulate()
+//        Если обращаться к этой же переменной из beforeEach, то стейт почему-то не обновляется,
+//        поэтому в it нужно создавать по сути ту же переменную, только с другим именем, напр: inputValue`
