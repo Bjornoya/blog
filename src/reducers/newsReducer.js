@@ -32,6 +32,15 @@ export default function(state=initialState, action) {
                 ...state,
                 data: [...state.data, action.payload]
             };
+        case t.EDIT_POST:
+            return {
+                ...state,
+                data: [
+                    ...state.data.slice(0, action.payload.id),
+                    {...state.data[action.payload.id], body: action.payload.body, title: action.payload.title},
+                    ...state.data.slice(action.payload.id + 1),
+                ]
+            };
         case t.DELETE_POST:
             return {
                 ...state,
@@ -46,6 +55,15 @@ export default function(state=initialState, action) {
                 data: [
                     ...state.data.slice(0, action.payload),
                     {...state.data[action.payload], isOpen: !state.data[action.payload].isOpen},
+                    ...state.data.slice(action.payload + 1),
+                ]
+            };
+        case t.OPEN_MODAL:
+            return {
+                ...state,
+                data: [
+                    ...state.data.slice(0, action.payload),
+                    {...state.data[action.payload], isOpenModal: !state.data[action.payload].isOpenModal},
                     ...state.data.slice(action.payload + 1),
                 ]
             };

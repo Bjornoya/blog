@@ -25,6 +25,15 @@ export const addPost = (post) => ({
     }
 });
 
+export const editPost = (post) => ({
+    type: t.EDIT_POST,
+    payload: {
+        id: post.id,
+        body: post.body,
+        title: post.title,
+    }
+});
+
 export const deletePost = (index) => ({
     type: t.DELETE_POST,
     payload: index
@@ -32,6 +41,11 @@ export const deletePost = (index) => ({
 
 export const toggleTooltip = (index) => ({
     type: t.TOGGLE_TOOLTIP,
+    payload: index
+});
+
+export const openModal = (index) => ({
+    type: t.OPEN_MODAL,
     payload: index
 });
 
