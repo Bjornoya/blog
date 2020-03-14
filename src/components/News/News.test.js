@@ -43,11 +43,6 @@ describe('News component', () => {
 
         });
 
-        it('Should render correct html', () => {
-            const wrapper = component.html();
-            expect(wrapper.includes('data-test="post"')).toBe(true);
-        });
-
         it('Should have valid props', () => {
             const wrapper = propTypesCheck(component, expectedProps);
             expect(wrapper).toEqual(undefined);

@@ -3,8 +3,17 @@ import style from './Post.module.scss';
 import PropTypes from 'prop-types';
 import Icon from "../Icon/Icon";
 import Tooltip from "../Tooltip/Tooltip";
+import Modal from "../Modal/Modal";
+import EditPost from "../EditPost/EditPost";
+import {useDispatch, useSelector} from "react-redux";
+import { openModal } from "../../actions/actionCreators";
 
-const Post = ({ userId, title, body, image, isOpen, id, handleTooltip, removePost }) => {
+const Post = ({ userId, title, body, image, isOpen, id, handleTooltip, removePost, handleIsOpen, isOpenModal }) => {
+
+    const dispatch = useDispatch();
+    const handleModal = (id) => {
+        dispatch(openModal(id))
+    };
 
     if (userId && id && title && body && image) {
         return (
@@ -18,12 +27,15 @@ const Post = ({ userId, title, body, image, isOpen, id, handleTooltip, removePos
                       </div>
                        <div className={style.icon}>
                            <Icon onClick={() => handleTooltip(id)} icon="more_vert" />
-                           <Tooltip isOpen={isOpen} removePost={removePost} id={id}/>
+                           <Tooltip handleTooltip={handleTooltip} handleIsOpen={handleIsOpen} isOpen={isOpen} removePost={removePost} id={id} handleModal={handleModal}/>
                        </div>
                    </div>
                     <h2 className={style.title}>{title}</h2>
                     <p className={style.text}>{body}</p>
                 </div>
+                <Modal onClick={handleModal} id={id} isOpen={isOpenModal} title="Edit post">
+                    <EditPost onClick={handleModal} id={id}/>
+                </Modal>
             </div>
         );
     } else {

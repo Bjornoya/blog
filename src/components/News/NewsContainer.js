@@ -7,12 +7,13 @@ import Header from "../Header/Header";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import AddPost from "../AddPost/AddPost";
+import EditPost from "../EditPost/EditPost";
 
 const NewsContainer = () => {
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenModal, setIsOpen] = useState(false);
     const handleIsOpen = () => {
-        setIsOpen(!isOpen)
+        setIsOpen(!isOpenModal)
     };
 
     useEffect(() => {
@@ -39,9 +40,9 @@ const NewsContainer = () => {
                     <h1 className={style.headline}>News</h1>
                     <Button children="Add post" onClick={handleIsOpen} className={style.button} />
                 </div>
-                <News data={newsData} handleTooltip={handleTooltip} removePost={removePost} />
+                <News isOpenModal={isOpenModal} handleIsOpen={handleIsOpen} data={newsData} handleTooltip={handleTooltip} removePost={removePost} />
             </div>
-            <Modal onClick={handleIsOpen} isOpen={isOpen} title="Add post">
+            <Modal onClick={handleIsOpen} isOpen={isOpenModal} title="Add post">
                 <AddPost onClick={handleIsOpen} />
             </Modal>
         </>

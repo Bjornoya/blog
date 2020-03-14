@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import style from './Modal.module.scss';
 
 
-const Modal = ({ children, isOpen, title, onClick }) => {
+const Modal = ({ children, isOpen, title, onClick, id }) => {
 
         if (isOpen) {
                 return (
@@ -11,7 +11,7 @@ const Modal = ({ children, isOpen, title, onClick }) => {
                         <div className={style.modal}>
                             <div className={style.header}>
                                 <div data-test="modal-title" className={style.title}>{title}</div>
-                                <div onClick={onClick} className={style.close}> </div>
+                                <div onClick={() => onClick(id)} className={style.close}> </div>
                             </div>
                             <div className={style.body}>
                                 { children }
