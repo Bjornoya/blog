@@ -48,23 +48,6 @@ describe('News component', () => {
             expect(wrapper).toEqual(undefined);
         });
     });
-
-    describe('Should NOT render', () => {
-        const setUp = () => {
-            const wrapper = shallow(<News />);
-            return wrapper;
-        };
-
-        let component;
-        beforeEach(() => {
-            component = setUp();
-        });
-
-        it('Should NOT render a news component if props not received', () => {
-            const wrapper = findByTestAttr(component, 'news');
-            expect(wrapper.length).toBe(0);
-        })
-    });
 });
 
 // TODO: `Нужно ли тестить метод reverse()? КАК ?`

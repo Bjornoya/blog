@@ -5,7 +5,7 @@ import Icon from "../Icon/Icon";
 import Tooltip from "../Tooltip/Tooltip";
 import Modal from "../Modal/Modal";
 import EditPost from "../EditPost/EditPost";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch } from "react-redux";
 import { openModal } from "../../actions/actionCreators";
 
 const Post = ({ userId, title, body, image, isOpen, id, handleTooltip, removePost, handleIsOpen, isOpenModal }) => {
@@ -14,8 +14,6 @@ const Post = ({ userId, title, body, image, isOpen, id, handleTooltip, removePos
     const handleModal = (id) => {
         dispatch(openModal(id))
     };
-
-    if (userId && id && title && body && image) {
         return (
             <div className={style.post} data-test="post">
                 <div className={style.image} style={{backgroundImage: `url(${image})`}}/>
@@ -38,9 +36,6 @@ const Post = ({ userId, title, body, image, isOpen, id, handleTooltip, removePos
                 </Modal>
             </div>
         );
-    } else {
-        return null;
-    }
 };
 
 Post.propTypes = {

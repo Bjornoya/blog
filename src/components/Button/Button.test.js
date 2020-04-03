@@ -30,21 +30,4 @@ describe('Button component', () => {
             expect(result).toEqual(undefined);
         });
     });
-
-    describe('Should NOT render', () => {
-        const setUp = () => {
-            const wrapper = shallow(<Button />);
-            return wrapper;
-        };
-        let component;
-
-        beforeEach(() => {
-            component = setUp();
-        });
-
-        it('Should NOT render if props not received', () => {
-            const result = findByTestAttr(component, 'button');
-            expect(result.length).toBe(0);
-        })
-    })
 });

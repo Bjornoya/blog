@@ -7,7 +7,6 @@ import Header from "../Header/Header";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import AddPost from "../AddPost/AddPost";
-import EditPost from "../EditPost/EditPost";
 
 const NewsContainer = () => {
 

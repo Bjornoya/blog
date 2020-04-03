@@ -37,7 +37,7 @@ describe('Post component', () => {
 
         it('Should render a post if have props', () => {
             const wrapper = findByTestAttr(component, 'post');
-            expect(wrapper.length).toBe(1);
+            expect(wrapper.length).toBe(2);
         });
 
         it('Should render correct userId', () => {
@@ -50,22 +50,4 @@ describe('Post component', () => {
         //     expect(result).toEqual(undefined);
         // })
     });
-
-    // describe('Should NOT render', () => {
-    //
-    //     const setUp = () => {
-    //         const wrapper = shallow(<Post />);
-    //         return wrapper;
-    //     };
-    //
-    //     let component;
-    //     beforeEach(() => {
-    //         component = setUp()
-    //     });
-    //
-    //     it('Should NOT render a post if props not received', () => {
-    //         const wrapper = findByTestAttr(component, 'post');
-    //         expect(wrapper.length).toBe(0);
-    //     });
-    // })
 });

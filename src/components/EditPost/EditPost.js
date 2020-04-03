@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Button from "../Button/Button";
 import style from './EditPost.module.scss';
 import { useDispatch, useSelector } from "react-redux";
-import {addPost, editPost} from "../../actions/actionCreators";
+import { editPost } from "../../actions/actionCreators";
 import Input from "../Input/Input";
 import TextArea from "../TextArea/TextArea";
 
