@@ -16,7 +16,7 @@ const Post = ({ userId, title, body, image, isOpen, id, handleTooltip, removePos
     };
         return (
             <div className={style.post} data-test="post">
-                <div className={style.image} style={{backgroundImage: `url(${image})`}}/>
+                <img src={image} className={style.image} alt="" />
                 <div className={style.body}>
                    <div className={style.postHead}>
                       <div>
