@@ -12,7 +12,7 @@ import image from '../../assets/img/iceland.jpg'
 
 const News = ({ data, handleTooltip, removePost, handleIsOpen }) => {
         const posts = data.map((post, index) => {
-            return <Post userId={post.userId} id={index} title={post.title} body={post.body} image={image} isOpen={post.isOpen} key={index} handleTooltip={handleTooltip}
+            return <Post userId={post.userId} id={index} title={post.title} body={post.body} image={image} isOpen={post.isOpen} key={post.id} handleTooltip={handleTooltip}
                          removePost={removePost} handleIsOpen={handleIsOpen} isOpenModal={post.isOpenModal} />
         });
 
