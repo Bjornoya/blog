@@ -27,7 +27,7 @@ const Post = ({ userId, title, body, image, id, removePost, isOpenModal }) => {
             </p>
           </div>
           <div className={style.icon}>
-            <Tooltip id={id}>
+            <Tooltip>
               <Menu>
                 <MenuItem
                   icon="edit"
