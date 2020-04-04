@@ -7,6 +7,8 @@ import Modal from '../Modal/Modal';
 import EditPost from '../EditPost/EditPost';
 import { useDispatch } from 'react-redux';
 import { openModal } from '../../actions/actionCreators';
+import MenuItem from '../Menu/MenuItem';
+import Menu from '../Menu/Menu';
 
 const Post = ({
   userId,
@@ -37,14 +39,22 @@ const Post = ({
           </div>
           <div className={style.icon}>
             <Icon onClick={() => handleTooltip(id)} icon="more_vert" />
-            <Tooltip
-              handleTooltip={handleTooltip}
-              handleIsOpen={handleIsOpen}
-              isOpen={isOpen}
-              removePost={removePost}
-              id={id}
-              handleModal={handleModal}
-            />
+            <Tooltip isOpen={isOpen}>
+              <Menu>
+                <MenuItem
+                  icon="edit"
+                  onClick={() => {
+                    handleTooltip(id);
+                    handleModal(id);
+                  }}
+                >
+                  Edit post
+                </MenuItem>
+                <MenuItem icon="delete" onClick={() => removePost(id)}>
+                  Delete post
+                </MenuItem>
+              </Menu>
+            </Tooltip>
           </div>
         </div>
         <h2 className={style.title}>{title}</h2>
