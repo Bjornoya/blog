@@ -1,7 +1,6 @@
 import React from 'react';
 import style from './Post.module.scss';
 import PropTypes from 'prop-types';
-import Icon from '../Icon/Icon';
 import Tooltip from '../Tooltip/Tooltip';
 import Modal from '../Modal/Modal';
 import EditPost from '../EditPost/EditPost';
@@ -10,22 +9,12 @@ import { openModal } from '../../actions/actionCreators';
 import MenuItem from '../Menu/MenuItem';
 import Menu from '../Menu/Menu';
 
-const Post = ({
-  userId,
-  title,
-  body,
-  image,
-  isOpen,
-  id,
-  handleTooltip,
-  removePost,
-  handleIsOpen,
-  isOpenModal,
-}) => {
+const Post = ({ userId, title, body, image, id, removePost, isOpenModal }) => {
   const dispatch = useDispatch();
   const handleModal = (id) => {
     dispatch(openModal(id));
   };
+
   return (
     <div className={style.post} data-test="post">
       <img src={image} className={style.image} alt="" />
@@ -38,13 +27,12 @@ const Post = ({
             </p>
           </div>
           <div className={style.icon}>
-            <Icon onClick={() => handleTooltip(id)} icon="more_vert" />
-            <Tooltip isOpen={isOpen}>
+            <Tooltip id={id}>
               <Menu>
                 <MenuItem
                   icon="edit"
                   onClick={() => {
-                    handleTooltip(id);
+                    console.log(id);
                     handleModal(id);
                   }}
                 >

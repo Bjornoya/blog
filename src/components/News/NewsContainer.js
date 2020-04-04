@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { deletePost, getNews, toggleTooltip } from '../../actions/actionCreators';
+import { deletePost, getNews } from '../../actions/actionCreators';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './News.module.scss';
 import News from './News';
@@ -20,10 +20,6 @@ const NewsContainer = () => {
 
   const dispatch = useDispatch();
 
-  const handleTooltip = (id) => {
-    dispatch(toggleTooltip(id));
-  };
-
   const removePost = (id) => {
     dispatch(deletePost(id));
   };
@@ -42,7 +38,6 @@ const NewsContainer = () => {
           isOpenModal={isOpenModal}
           handleIsOpen={handleIsOpen}
           data={newsData}
-          handleTooltip={handleTooltip}
           removePost={removePost}
         />
       </div>
