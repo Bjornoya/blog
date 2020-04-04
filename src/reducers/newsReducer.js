@@ -49,15 +49,6 @@ export default function (state = initialState, action) {
         ...state,
         data: [...state.data.slice(0, action.payload), ...state.data.slice(action.payload + 1)],
       };
-    case t.OPEN_MODAL:
-      return {
-        ...state,
-        data: [
-          ...state.data.slice(0, action.payload),
-          { ...state.data[action.payload], isOpenModal: !state.data[action.payload].isOpenModal },
-          ...state.data.slice(action.payload + 1),
-        ],
-      };
     default:
       return state;
   }

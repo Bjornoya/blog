@@ -38,11 +38,6 @@ export const deletePost = (index) => ({
   payload: index,
 });
 
-export const openModal = (index) => ({
-  type: t.OPEN_MODAL,
-  payload: index,
-});
-
 export const getNews = () => async (dispatch) => {
   dispatch(newsRequest());
   const response = await fetch(`${API_ROOT}/posts`);
