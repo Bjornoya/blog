@@ -9,6 +9,7 @@ import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
 import AddPost from '../AddPost/AddPost';
 import EditPost from '../EditPost/EditPost';
+import { getPosts } from '../../utils/selectors';
 
 let postId = null;
 
@@ -31,7 +32,7 @@ const NewsContainer = () => {
     dispatch(deletePost(id));
   };
 
-  const newsData = useSelector((state) => state.news.data);
+  const newsData = useSelector(getPosts);
 
   return (
     <>

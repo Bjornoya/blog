@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editPost } from '../../actions/actionCreators';
 import PostForm from '../PostForm/PostForm';
+import { getPosts } from '../../utils/selectors';
 
 const EditPost = ({ onClick, id }) => {
-  const newsData = useSelector((state) => state.news.data);
+  const newsData = useSelector(getPosts);
   const [field, setField] = useState({
     title: '',
     body: '',
