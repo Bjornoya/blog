@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Button from '../Button/Button';
-import style from './EditPost.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { editPost } from '../../actions/actionCreators';
-import Input from '../Input/Input';
-import TextArea from '../TextArea/TextArea';
+import PostForm from '../PostForm/PostForm';
 
 const EditPost = ({ onClick, id }) => {
   const newsData = useSelector((state) => state.news.data);
@@ -38,21 +35,7 @@ const EditPost = ({ onClick, id }) => {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <span className={style.label}>Post title</span>
-        <Input name="title" value={field.title} onChange={handleField} />
-        <span className={style.label}>Description</span>
-        <TextArea rows="7" name="body" value={field.body} onChange={handleField} />
-        <div className={style.footer}>
-          <Button
-            data-test="modal-close"
-            onClick={() => onClick(id)}
-            className={style.cancel}
-            children="Cancel"
-          />
-          <Button children="Save" className={style.button} />
-        </div>
-      </form>
+      <PostForm onClick={onClick} onSubmit={onSubmit} field={field} handleField={handleField} />
     </>
   );
 };

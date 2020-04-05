@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import Button from '../Button/Button';
-import style from './AddPost.module.scss';
 import { useDispatch } from 'react-redux';
 import { addPost } from '../../actions/actionCreators';
-import Input from '../Input/Input';
-import TextArea from '../TextArea/TextArea';
+import PostForm from '../PostForm/PostForm';
 
 const AddPost = ({ onClick }) => {
   const [field, setField] = useState({
@@ -28,21 +25,7 @@ const AddPost = ({ onClick }) => {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <span className={style.label}>Post title</span>
-        <Input name="title" value={field.title} onChange={handleField} />
-        <span className={style.label}>Description</span>
-        <TextArea rows="7" name="body" value={field.body} onChange={handleField} />
-        <div className={style.footer}>
-          <Button
-            data-test="modal-close"
-            onClick={onClick}
-            className={style.cancel}
-            children="Cancel"
-          />
-          <Button children="Submit" className={style.button} />
-        </div>
-      </form>
+      <PostForm onClick={onClick} onSubmit={onSubmit} field={field} handleField={handleField} />
     </>
   );
 };
