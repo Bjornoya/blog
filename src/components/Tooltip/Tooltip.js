@@ -15,11 +15,13 @@ const Tooltip = ({ children }) => {
     }
     setTooltip(false);
   };
+
   // Добавил обработчик событий при первом рендере. Надо проверить нужен ли в конце колбек.
   useEffect(() => {
-    const getClick = document.addEventListener('click', handleClick);
+    document.addEventListener('click', handleClick);
+    // Эмуляция component unmount
     return () => {
-      getClick();
+      document.removeEventListener('click', handleClick);
     };
   }, []);
   return (
