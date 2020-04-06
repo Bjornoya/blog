@@ -34,22 +34,24 @@ export default function (state = initialState, action) {
     case t.EDIT_POST:
       return {
         ...state,
-        data: [
-          ...state.data.slice(0, action.payload.id),
-          {
-            ...state.data[action.payload.id],
-            body: action.payload.body,
-            title: action.payload.title,
-          },
-          ...state.data.slice(action.payload.id + 1),
-        ],
+        data: state.data.map((post, index) => {
+          if (index === action.payload.id) {
+            return {
+              ...post,
+              body: action.payload.body,
+              title: action.payload.title,
+            };
+          } else return post;
+        }),
       };
     case t.DELETE_POST:
       return {
         ...state,
-        data: [...state.data.slice(0, action.payload), ...state.data.slice(action.payload + 1)],
+        data: state.data.filter((el, index) => index !== action.payload),
       };
     default:
       return state;
   }
 }
+
+// Пробовал вместо индекса брать значение id. Приходило в формате строки, надо быть внимательным и юзать parseInt()

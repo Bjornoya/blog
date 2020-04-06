@@ -33,9 +33,9 @@ export const editPost = (post) => ({
   },
 });
 
-export const deletePost = (index) => ({
+export const deletePost = (id) => ({
   type: t.DELETE_POST,
-  payload: index,
+  payload: id,
 });
 
 export const getNews = () => async (dispatch) => {
