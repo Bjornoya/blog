@@ -1,8 +1,12 @@
 import React from 'react';
 import style from './Menu.module.scss';
-import Icon from '../Icon/Icon';
+import Icon, { IconProps } from '../Icon/Icon';
 
-const MenuItem = ({ children, icon, onClick }) => {
+interface IMenuItemProps extends IconProps {
+  children: string;
+}
+
+const MenuItem = ({ children, icon, onClick }: IMenuItemProps) => {
   return (
     <div onClick={onClick} className={style.item}>
       <Icon icon={icon} />

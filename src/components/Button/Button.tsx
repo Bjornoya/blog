@@ -1,17 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import style from './Button.module.scss';
 
-const Button = ({ children, className, onClick }) => {
+interface IButtonProps {
+  children: string;
+  onClick?: () => void;
+  className?: string;
+}
+
+const Button = ({ children, className, onClick }: IButtonProps) => {
   return (
     <button onClick={onClick} className={className ? className : style.button} data-test="button">
       {children}
     </button>
   );
-};
-
-Button.propTypes = {
-  children: PropTypes.string,
 };
 
 export default Button;

@@ -1,8 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import style from './Modal.module.scss';
 
-const Modal = ({ children, isOpen, title, onClick, id }) => {
+interface IModalProps {
+  isOpen: boolean;
+  title: string;
+  onClick: (id: number) => void;
+  id: number;
+  children?: any;
+}
+
+const Modal = ({ children, isOpen, title, onClick, id }: IModalProps) => {
+  console.log(id)
   if (isOpen) {
     return (
       <div className={style.overlay}>
@@ -22,12 +30,6 @@ const Modal = ({ children, isOpen, title, onClick, id }) => {
   } else {
     return null;
   }
-};
-
-Modal.propTypes = {
-  isOpen: PropTypes.bool,
-  onClick: PropTypes.func,
-  title: PropTypes.string,
 };
 
 export default Modal;

@@ -1,11 +1,20 @@
 import React from 'react';
 import style from './Post.module.scss';
-import PropTypes from 'prop-types';
 import Tooltip from '../Tooltip/Tooltip';
 import MenuItem from '../Menu/MenuItem';
 import Menu from '../Menu/Menu';
 
-const Post = ({ userId, title, body, image, id, removePost, onClick }) => {
+interface IPostProps {
+  userId: number;
+  title: string;
+  body: string;
+  id: number;
+  image: string;
+  onClick: (id: number) => void;
+  removePost: (id: number) => void;
+}
+
+const Post = ({ userId, title, body, image, id, removePost, onClick }: IPostProps) => {
   return (
     <div className={style.post} data-test="post">
       <img src={image} className={style.image} alt="" />
@@ -35,14 +44,6 @@ const Post = ({ userId, title, body, image, id, removePost, onClick }) => {
       </div>
     </div>
   );
-};
-
-Post.propTypes = {
-  userId: PropTypes.number,
-  title: PropTypes.string,
-  body: PropTypes.string,
-  id: PropTypes.number,
-  image: PropTypes.string,
 };
 
 export default Post;

@@ -2,7 +2,12 @@ import React from 'react';
 import style from './Icon.module.scss';
 import MaterialIcon from 'material-icons-react';
 
-const Icon = ({ icon, onClick }) => {
+export interface IconProps {
+  icon: string;
+  onClick?: () => void;
+}
+
+const Icon = ({ icon, onClick }: IconProps) => {
   return (
     <div onClick={onClick} className={style.icon}>
       <MaterialIcon icon={icon} />

@@ -25,7 +25,7 @@ const AddPost = ({ onClick }) => {
 
   return (
     <>
-      <PostForm onClick={onClick} onSubmit={onSubmit} field={field} handleField={handleField} />
+      <PostForm onClick={onClick} onSubmit={onSubmit} field={field} onChange={handleField} />
     </>
   );
 };

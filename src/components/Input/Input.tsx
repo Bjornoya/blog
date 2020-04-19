@@ -1,7 +1,13 @@
 import React from 'react';
 import style from './Input.module.scss';
 
-const Input = ({ name, value, onChange }) => {
+export interface InputProps {
+  name: string;
+  value: string;
+  onChange: () => void;
+}
+
+const Input = ({ name, value, onChange }: InputProps) => {
   return (
     <input
       name={name}

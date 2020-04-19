@@ -1,7 +1,12 @@
 import React from 'react';
 import style from './TextArea.module.scss';
+import { InputProps } from '../Input/Input';
 
-const TextArea = ({ children, rows, name, value, onChange }) => {
+interface ITextAreaProps extends InputProps {
+  rows: number;
+}
+
+const TextArea = ({ rows, name, value, onChange }: ITextAreaProps) => {
   return (
     <textarea
       name={name}
