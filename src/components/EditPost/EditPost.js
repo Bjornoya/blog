@@ -36,7 +36,7 @@ const EditPost = ({ onClick, id }) => {
 
   return (
     <>
-      <PostForm onClick={onClick} onSubmit={onSubmit} field={field} handleField={handleField} />
+      <PostForm onClick={onClick} onSubmit={onSubmit} field={field} onChange={handleField} />
     </>
   );
 };
