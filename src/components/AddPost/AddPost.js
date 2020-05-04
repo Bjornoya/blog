@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addPost } from '../../actions/actionCreators';
+import { addPost } from '../../store';
 import PostForm from '../PostForm/PostForm';
 
 const AddPost = ({ onClick }) => {
   const [field, setField] = useState({
     title: '',
     body: '',
+    userId: 14,
   });
   const handleField = (event) => {
     setField({

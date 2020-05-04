@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { editPost } from '../../actions/actionCreators';
+import { editPost } from '../../store';
 import PostForm from '../PostForm/PostForm';
 import { getPosts } from '../../utils/selectors';
 

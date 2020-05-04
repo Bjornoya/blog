@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { deletePost, getNews } from '../../actions/actionCreators';
+import { deletePost, getNews } from '../../store';
 import { useToggle } from '../../hooks/useToggle';
 import { useDispatch, useSelector } from 'react-redux';
 import style from './News.module.scss';
