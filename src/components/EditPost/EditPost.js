@@ -18,7 +18,7 @@ const EditPost = ({ onClick, id }) => {
       body: newsData[id].body,
       id: newsData[id].id - 1,
     });
-  }, []);
+  }, [newsData, id]);
   const handleField = (event) => {
     setField({
       ...field,

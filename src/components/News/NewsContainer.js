@@ -22,11 +22,11 @@ const NewsContainer = () => {
     postId = id;
   };
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getNews());
-  }, []);
-
-  const dispatch = useDispatch();
+  }, [dispatch]);
 
   const removePost = (id) => {
     dispatch(deletePost(id));
