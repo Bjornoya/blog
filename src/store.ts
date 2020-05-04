@@ -1,7 +1,21 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { API_ROOT } from './utils';
 
-export const initialState = {
+interface IData {
+  id?: string;
+  userId: number;
+  title: string;
+  body: string;
+  image?: string;
+}
+
+interface IState {
+  data: IData[],
+  isLoading: boolean,
+  error: null | string,
+}
+
+export const initialState: IState = {
   data: [],
   isLoading: false,
   error: null,
@@ -11,26 +25,26 @@ const newsSlice = createSlice({
   name: 'news',
   initialState,
   reducers: {
-    request: (state, action) => {
+    request: (state: IState) => {
       state.isLoading = true;
       state.error = null;
     },
-    success: (state, { payload }) => {
+    success: (state: IState, { payload }: PayloadAction<IData[]>) => {
       state.data = payload;
       state.isLoading = false;
     },
-    failure: (state, { payload }) => {
+    failure: (state: IState, { payload }: PayloadAction<string>) => {
       state.isLoading = false;
       state.error = payload;
     },
-    edit: (state, { payload }) => {
+    edit: (state: IState, { payload }: PayloadAction<{ id: number; body: string; title: string }>) => {
         state.data[payload.id].body = payload.body;
         state.data[payload.id].title = payload.title;
     },
-    remove: (state, { payload }) => {
+    remove: (state: IState, { payload }) => {
         state.data.splice(payload, 1)
     },
-    add: (state, { payload }) => {
+    add: (state: IState, { payload }) => {
       state.data.push({
         userId: payload.userId,
         body: payload.body,
@@ -50,7 +64,7 @@ export const {
 } = newsSlice.actions;
 
 // Async action
-export const getNews = () => async (dispatch) => {
+export const getNews = () => async (dispatch: Function) => {
   dispatch(newsRequest());
   const response = await fetch(`${API_ROOT}/posts`);
   const myJson = await response.json();
