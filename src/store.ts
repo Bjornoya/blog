@@ -13,12 +13,14 @@ interface IState {
   data: IData[],
   isLoading: boolean,
   error: null | string,
+  savedPostsIds: Array<number>,
 }
 
 export const initialState: IState = {
   data: [],
   isLoading: false,
   error: null,
+  savedPostsIds: [],
 };
 
 const newsSlice = createSlice({
@@ -50,6 +52,9 @@ const newsSlice = createSlice({
         body: payload.body,
         title: payload.title,
       })
+    },
+    select: (state: IState, { payload }: PayloadAction<number>) => {
+      state.savedPostsIds.push(payload)
     }
   }
 });
@@ -61,6 +66,7 @@ export const {
   edit: editPost,
   remove: deletePost,
   add: addPost,
+  select: selectPost,
 } = newsSlice.actions;
 
 // Async action

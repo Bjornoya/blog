@@ -12,9 +12,10 @@ interface IPostProps {
   image: string;
   onClick: (id: number) => void;
   removePost: (id: number) => void;
+  savePost: (id: number) => void;
 }
 
-const Post = ({ userId, title, body, image, id, removePost, onClick }: IPostProps) => {
+const Post = ({ userId, title, body, image, id, removePost, savePost, onClick }: IPostProps) => {
   return (
     <div className={style.post} data-test="post">
       <img src={image} className={style.image} alt="" />
@@ -34,6 +35,9 @@ const Post = ({ userId, title, body, image, id, removePost, onClick }: IPostProp
                 </MenuItem>
                 <MenuItem icon="delete" onClick={() => removePost(id)}>
                   Delete post
+                </MenuItem>
+                <MenuItem icon="favorite" onClick={() => savePost(id)}>
+                  Like post
                 </MenuItem>
               </Menu>
             </Tooltip>

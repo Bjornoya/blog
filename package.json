@@ -7,6 +7,8 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@types/react-redux": "^7.1.8",
+    "@types/react-router-dom": "^5.1.5",
     "fetch-mock": "^9.0.0-beta.2",
     "material-icons-react": "^1.0.4",
     "node-fetch": "^2.6.0",
